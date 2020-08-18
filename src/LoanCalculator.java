@@ -142,61 +142,94 @@ public class LoanCalculator extends Application {
  * to utilize getter and setter methods in order to do so.
  *
  */
+
 class MathCalc {
 	private double iR, lA;
 	private int yR;
 	private java.util.Date dateNeed;
 
-	//get the interest rate method
+	/**
+	 * Gets the interest rate method
+	 * @return the interest rate
+	 */
 	public double getIr() {
 		return iR;
 	}
 
-	//set the interest rate method
+	/**
+	 * Sets the interest rate method
+	 * @param iR the interest rate as a double
+	 */
 	public void setIr(double iR) {
 		this.iR = iR;
 	}
 
-	//get the date method
+	/**
+	 * Gets the date method
+	 * @return the amount of years to pay back the loan
+	 */
 	public int getDate() {
 		return yR;
 	}
 
-	//set the date method
+	
+	/**
+	 * Sets the date method
+	 * @param yR the amount of years as an int
+	 */
 	public void setDate(int yR) {
 		this.yR = yR;
 	}
 	
-	//need to get loan date
+	/**
+	 * Gets the loan date aspect
+	 * @return the date needed
+	 */
 	public java.util.Date getActualDate(){
 		return dateNeed;
 	}
 
-	//get the loan amount method
+	/**
+	 * Gets the loan amount method
+	 * @return the principle or the loan requested amount
+	 */
 	public double getLa() {
 		return lA;
 	}
 
-	//set the loan amount method
+	/**
+	 * Sets the loan amount method
+	 * @param lA the loan amount as a double
+	 */
 	public void setLa(double lA) {
 		this.lA = lA;
 	}
 
-	//get the method for monthly calculations
+	/**
+	 * Get the method for monthly calculations
+	 * @return the amount of the monthly payment
+	 */
 	public double getMonthP() {
 		double monthlyIr = iR/ (12 *100);
 		double monthlyPaym = (lA * monthlyIr) / (1 -(1/ Math.pow(1 + monthlyIr, yR * 12)));
 		return monthlyPaym;
 	}
 	
-	//get the method for total calculations
+		/**
+		 * Gets the method for total calculations
+		 * @return the amount of the total amount which will be payed at the end of the loan
+		 */
 		public double getTotalP() {
 			double totalPaym = getMonthP() * yR * 12;
 			return totalPaym;
 		}
 	
-
-	//instantiate the class
+	/**
+	 * Instantiates the class
+	 * @param iR interest rate as a double
+	 * @param yR year as an int
+	 * @param lA loan amount as a double
+	 */
 	public MathCalc(double iR, int yR, double lA) {
 		this.iR = iR;
 		this.yR = yR;
@@ -204,7 +237,9 @@ class MathCalc {
 		dateNeed = new java.util.Date();
 	}
 	
-	//the class constructor
+	/**
+	 *  the class constructor
+	 */
 	public MathCalc() {
 		this(5.0, 2, 2000);
 	}
