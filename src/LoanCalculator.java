@@ -14,7 +14,6 @@
  */
 
 import javax.swing.plaf.basic.BasicButtonListener;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -196,7 +195,6 @@ class MathCalc {
 			return totalPaym;
 		}
 	
-
 
 	//instantiate the class
 	public MathCalc(double iR, int yR, double lA) {
